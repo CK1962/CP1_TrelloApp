@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ITodo } from './interfaces/itodo';
 import { StatusCode } from './enums/status-code.enum';
+import { TodoService } from './services/todo.service';
 // import { confirm-modal } from './confirm-modal/confirm-modal.component'
 
 @Component({
@@ -9,19 +10,33 @@ import { StatusCode } from './enums/status-code.enum';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    constructor(
+        private TodoService: TodoService) { }
+
   title = 'Todos';
-  todoList: ITodo[] = [];
+  //todoList: ITodo[] = [];
   todoTitle: string;
 
   ngOnInit() {
       this.todoTitle = '';
-      this.todoList = [
-          { id: 0, title: 'Finish CP1', status: StatusCode.NotStarted },
-      ];
+      //this.todoList = [
+       //   { id: 0, title: 'Finish CP1', status: StatusCode.NotStarted },
+      //];
+  }
+
+  get filteredArray(): ITodo[] {
+    // if (!this.status) {
+       return this.TodoService.todoList;
+    // }
+    // else {
+    //   return this.TodoService.todoList.filter(x =>
+    //     this.status === "done" ? x.isDone : !x.isDone
+    //   );
+    // }
   }
 
   addTodo(): void {
-      this.todoList.push({
+      this.TodoService.add({
           id: 0,
           title: this.todoTitle,
           status: StatusCode.NotStarted
@@ -29,8 +44,5 @@ export class AppComponent {
 
       this.todoTitle = '';
   }
-  deleteTodo(todo: any) {
-      const index = this.todoList.findIndex(todoItem => todoItem === todo);
-      this.todoList.splice(index, 1);
-  }
+
 }

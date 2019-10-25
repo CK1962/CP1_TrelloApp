@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { ITodo } from '../interfaces/itodo';
-//import { TodoService } from 'src/services/todo.service';
+import { TodoService } from '../services/todo.service';
+
 
 
 @Component({
@@ -16,11 +17,11 @@ export class ConfirmationModalComponent implements OnInit {
   @Input() todo: ITodo;
   constructor(
     private modalService: NgbModal,
-    //private todoService: TodoService
+    private todoService: TodoService
     ) {}
 
     deleteTodo() {
-      //this.todoService.delete(this.todo);
+      this.todoService.delete(this.todo);
     }
 
   open(content) {
