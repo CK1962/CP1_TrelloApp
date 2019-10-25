@@ -9,19 +9,80 @@
 
 <h1 align="center">Todo List - new title</h1>
 
-<input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()">
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      Not Started
+      <ul align="center" class="list-group">
+            <li class="list-group-item" *ngFor="let todo of filteredArrayNotStarted">
+              <div class="view">
+                <label>{{ todo.title }}</label>
+                <br>
+                <label>{{ todo.status }}</label>
 
-<ul align="center" class="list-group">
-    <li class="list-group-item" *ngFor="let todo of filteredArray">
-        <div class="view">
-            <label>{{ todo.title }}</label>
-            <div class="float-right">
-                <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
-                <confirmation-modal [todo]="todo"></confirmation-modal>
-            </div>
-        </div>
-    </li>
-</ul>
+                <div class="float-right">
+                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
+                  <confirmation-modal [todo]="todo"></confirmation-modal>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'C')">Completed</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+    </div>
+
+    <div class="col-sm">
+      In Progress
+      <ul align="center" class="list-group">
+            <li class="list-group-item" *ngFor="let todo of filteredArrayInProgress">
+              <div class="view">
+                <label>{{ todo.title }}</label>
+                <br>
+                <label>{{ todo.status }}</label>
+
+                <div class="float-right">
+                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
+                  <confirmation-modal [todo]="todo"></confirmation-modal>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'C')">Completed</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+    </div>
+    <div class="col-sm">
+      Completed
+      <ul align="center" class="list-group">
+            <li class="list-group-item" *ngFor="let todo of filteredArrayCompleted">
+              <div class="view">
+                <label>{{ todo.title }}</label>
+                <br>
+                <label>{{ todo.status }}</label>
+
+                <div class="float-right">
+                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
+                  <confirmation-modal [todo]="todo"></confirmation-modal>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
+                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'C')">Completed</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+    </div>
+  </div>
+</div>
+
+<input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle"
+  (keyup.enter)="addTodo()">
+
+
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
@@ -30,5 +91,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-

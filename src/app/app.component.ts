@@ -5,44 +5,60 @@ import { TodoService } from './services/todo.service';
 // import { confirm-modal } from './confirm-modal/confirm-modal.component'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
     constructor(
         private TodoService: TodoService) { }
 
-  title = 'Todos';
-  //todoList: ITodo[] = [];
-  todoTitle: string;
+    //filteredBy = null;
+    todoId: number = 1;
+    title = 'Todos';
+    //todoList: ITodo[] = [];
+    todoTitle: string;
 
-  ngOnInit() {
-      this.todoTitle = '';
-      //this.todoList = [
-       //   { id: 0, title: 'Finish CP1', status: StatusCode.NotStarted },
-      //];
-  }
+    ngOnInit() {
+        this.todoTitle = '';
+        //this.todoList = [
+        //   { id: 0, title: 'Finish CP1', status: StatusCode.NotStarted },
+        //];
+    }
 
-  get filteredArray(): ITodo[] {
-    // if (!this.status) {
-       return this.TodoService.todoList;
-    // }
-    // else {
-    //   return this.TodoService.todoList.filter(x =>
-    //     this.status === "done" ? x.isDone : !x.isDone
-    //   );
-    // }
-  }
+   filteredArray(statusCode:StatusCode): ITodo[] {
+            return this.TodoService.todoList.filter(x =>
+                x.status===statusCode
+            );
+    }
 
-  addTodo(): void {
-      this.TodoService.add({
-          id: 0,
-          title: this.todoTitle,
-          status: StatusCode.NotStarted
-      });
+    get filteredArrayNotStarted(): ITodo[] {
+        return this.filteredArray(StatusCode.NotStarted);
+    }
 
-      this.todoTitle = '';
-  }
+    get filteredArrayInProgress(): ITodo[] {
+        return this.filteredArray(StatusCode.InProgress);
+    }
+
+    get filteredArrayCompleted(): ITodo[] {
+        return this.filteredArray(StatusCode.Completed);
+    }
+
+    addTodo(): void {
+        this.todoId++;
+        this.TodoService.add({
+            id: this.todoId,
+            title: this.todoTitle,
+            status: StatusCode.NotStarted
+        });
+
+        this.todoTitle = '';
+    }
+
+    updateStatus(todo: ITodo, statusCode: StatusCode): void {
+        this.TodoService.updateStatus(todo, statusCode)
+    }
+
+
 
 }

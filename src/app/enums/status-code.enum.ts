@@ -1,5 +1,5 @@
 export enum StatusCode {
-    NotStarted,
-    InProgress,
-    Completed
+    NotStarted = 'NS',
+    InProgress = 'IP',
+    Completed = 'C'
 }
