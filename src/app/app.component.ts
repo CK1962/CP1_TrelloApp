@@ -55,9 +55,7 @@ export class AppComponent {
         this.todoTitle = '';
     }
 
-    updateStatus(todo: ITodo, statusCode: StatusCode): void {
-        this.TodoService.updateStatus(todo, statusCode)
-    }
+   
 
 
 

@@ -1,0 +1,11 @@
+ <div class="view">
+   <!-- <label>{{ todo.title }}</label> -->
+   <input type="text" class="form-control" [(ngModel)]="todo.title">
+
+   <div class="float-right">
+     <confirmation-modal [todo]="todo"></confirmation-modal>
+     <button type="button" class="btn  btn-info btn-sm" (click)="updateStatus('NS')">Not Started</button>
+     <button type="button" class="btn  btn-primary btn-sm" (click)="updateStatus('IP')">In Progress</button>
+     <button type="button" class="btn  btn-success btn-sm" (click)="updateStatus('C')">Completed</button>
+   </div>
+ </div>
