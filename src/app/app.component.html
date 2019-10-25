@@ -11,75 +11,77 @@
 
 <div class="container">
   <div class="row">
+    <input type="text" class="form-control" placeholder="Add next todo here" [(ngModel)]="todoTitle"
+      (keyup.enter)="addTodo()">
+  </div>
+  <div class="row">
     <div class="col-sm">
-      Not Started
+      <h2>Not Started</h2>
       <ul align="center" class="list-group">
-            <li class="list-group-item" *ngFor="let todo of filteredArrayNotStarted">
-              <div class="view">
-                <label>{{ todo.title }}</label>
-                <br>
-                <label>{{ todo.status }}</label>
+        <li class="list-group-item" *ngFor="let todo of filteredArrayNotStarted">
+          <div class="view">
+            <!-- <label>{{ todo.title }}</label> -->
+            <input type="text" class="form-control" [(ngModel)]="todo.title">
 
-                <div class="float-right">
-                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
-                  <confirmation-modal [todo]="todo"></confirmation-modal>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'C')">Completed</button>
-                </div>
-              </div>
-            </li>
-          </ul>
+            <div class="float-right">
+              <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
+              <confirmation-modal [todo]="todo"></confirmation-modal>
+              <!-- <button type="button" class="btn  btn-info btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button> -->
+              <button type="button" class="btn  btn-primary btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
+              <!-- <button type="button" class="btn  btn-success btn-sm" (click)="updateStatus(todo, 'C')">Completed</button> -->
+            </div>
+          </div>
+        </li>
+      </ul>
 
     </div>
 
     <div class="col-sm">
-      In Progress
+      <h2>In Progress</h2>
+      <!-- <div class="card"> -->
       <ul align="center" class="list-group">
-            <li class="list-group-item" *ngFor="let todo of filteredArrayInProgress">
-              <div class="view">
-                <label>{{ todo.title }}</label>
-                <br>
-                <label>{{ todo.status }}</label>
+        <li class="list-group-item" *ngFor="let todo of filteredArrayInProgress">
+          <div class="view">
+            <!-- <label>{{ todo.title }}</label> -->
+            <input type="text" class="form-control" [(ngModel)]="todo.title">
 
-                <div class="float-right">
-                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
-                  <confirmation-modal [todo]="todo"></confirmation-modal>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'C')">Completed</button>
-                </div>
-              </div>
-            </li>
-          </ul>
+            <div class="float-right">
+              <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
+              <confirmation-modal [todo]="todo"></confirmation-modal>
+              <button type="button" class="btn  btn-info btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button>
+              <!-- <button type="button" class="btn  btn-primary btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button> -->
+              <button type="button" class="btn  btn-success btn-sm" (click)="updateStatus(todo, 'C')">Completed</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    <!-- </div> -->
 
     </div>
     <div class="col-sm">
-      Completed
+      <h2>Completed</h2>
       <ul align="center" class="list-group">
-            <li class="list-group-item" *ngFor="let todo of filteredArrayCompleted">
-              <div class="view">
-                <label>{{ todo.title }}</label>
-                <br>
-                <label>{{ todo.status }}</label>
+        <li class="list-group-item" *ngFor="let todo of filteredArrayCompleted">
+          <div class="view">
+            <!-- <label>{{ todo.title }}</label> -->
+            <input type="text" class="form-control" [(ngModel)]="todo.title">
 
-                <div class="float-right">
-                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
-                  <confirmation-modal [todo]="todo"></confirmation-modal>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
-                  <button type="button" class="btn  btn-sm" (click)="updateStatus(todo, 'C')">Completed</button>
-                </div>
-              </div>
-            </li>
-          </ul>
+            <div class="float-right">
+              <!-- <button type="button" class="btn btn-danger btn-sm" (click)="deleteTodo(todo)">Delete</button> -->
+              <confirmation-modal [todo]="todo"></confirmation-modal>
+              <!-- <button type="button" class="btn  btn-info btn-sm" (click)="updateStatus(todo, 'NS')">Not Started</button> -->
+              <button type="button" class="btn  btn-primary btn-sm" (click)="updateStatus(todo, 'IP')">In Progress</button>
+              <!-- <button type="button" class="btn  btn-success btn-sm" (click)="updateStatus(todo, 'C')">Completed</button> -->
+            </div>
+          </div>
+        </li>
+      </ul>
 
     </div>
   </div>
 </div>
 
-<input type="text" class="todo-input" placeholder="Add next todo here" [(ngModel)]="todoTitle"
-  (keyup.enter)="addTodo()">
+
 
 
 
