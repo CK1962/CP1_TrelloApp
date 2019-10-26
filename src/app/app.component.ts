@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ITodo } from './interfaces/itodo';
 import { StatusCode } from './enums/status-code.enum';
 import { TodoService } from './services/todo.service';
-// import { confirm-modal } from './confirm-modal/confirm-modal.component'
 
 @Component({
     selector: 'app-root',
@@ -13,35 +12,12 @@ export class AppComponent {
     constructor(
         private TodoService: TodoService) { }
 
-    //filteredBy = null;
     todoId: number = 1;
     title = 'Todos';
-    //todoList: ITodo[] = [];
     todoTitle: string;
 
     ngOnInit() {
         this.todoTitle = '';
-        //this.todoList = [
-        //   { id: 0, title: 'Finish CP1', status: StatusCode.NotStarted },
-        //];
-    }
-
-   filteredArray(statusCode:StatusCode): ITodo[] {
-            return this.TodoService.todoList.filter(x =>
-                x.status===statusCode
-            );
-    }
-
-    get filteredArrayNotStarted(): ITodo[] {
-        return this.filteredArray(StatusCode.NotStarted);
-    }
-
-    get filteredArrayInProgress(): ITodo[] {
-        return this.filteredArray(StatusCode.InProgress);
-    }
-
-    get filteredArrayCompleted(): ITodo[] {
-        return this.filteredArray(StatusCode.Completed);
     }
 
     addTodo(): void {
@@ -55,7 +31,7 @@ export class AppComponent {
         this.todoTitle = '';
     }
 
-   
+
 
 
 

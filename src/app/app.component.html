@@ -1,13 +1,4 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<h1 align="center">Todo List - new title</h1>
+<h1 align="center">Todo List</h1>
 
 <div class="container">
   <div class="row">
@@ -16,47 +7,15 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <h2>Not Started</h2>
-      <ul align="center" class="list-group">
-        <li class="list-group-item" *ngFor="let todo of filteredArrayNotStarted">
-          <todo-item [todo]="todo"></todo-item>
-        </li>
-      </ul>
-
+        <list-of-todo-items [header]="'Not Started'" [statusCode]="'NS'"></list-of-todo-items>
     </div>
 
     <div class="col-sm">
-      <h2>In Progress</h2>
-      <!-- <div class="card"> -->
-      <ul align="center" class="list-group">
-        <li class="list-group-item" *ngFor="let todo of filteredArrayInProgress">
-          <todo-item [todo]="todo"></todo-item>
-        </li>
-      </ul>
-      <!-- </div> -->
+            <list-of-todo-items [header]="'In Progress'" [statusCode]="'IP'"></list-of-todo-items>
 
     </div>
     <div class="col-sm">
-      <h2>Completed</h2>
-      <ul align="center" class="list-group">
-        <li class="list-group-item" *ngFor="let todo of filteredArrayCompleted">
-          <todo-item [todo]="todo"></todo-item>
-        </li>
-      </ul>
-
+            <list-of-todo-items [header]="'Completed'" [statusCode]="'C'"></list-of-todo-items>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
