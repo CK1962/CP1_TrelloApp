@@ -1,10 +1,15 @@
- <div class="view">
-   <label *ngIf="!isEditing">{{ todo.title }}</label>
+ <div [style.background-color]="getBackgroundColor()" class="todo-card container" align="left">
+   <div class="row">
+     <div class="col">
+       <label *ngIf="!isEditing">{{ todo.title }}</label>
 
-   <input *ngIf="isEditing" type="text" class="form-control" [(ngModel)]="todo.title" (keyup.enter)="updateTitleSave()">
-   <button type="button" class="btn  btn-primary btn-sm" (click)="updateTitle()">Edit</button>
+       <input *ngIf="isEditing" type="text" class="form-control" [(ngModel)]="todo.title"
+         (keyup.enter)="updateTitleSave()">
+     </div>
+     <button type="button" class="btn  btn-primary btn-sm" (click)="updateTitle()">Edit</button>
+   </div>
 
-   <div class="float-right">
+   <div>
      <confirmation-modal [todo]="todo"></confirmation-modal>
      <button type="button" class="btn  btn-info btn-sm" (click)="updateStatus('NS')">Not Started</button>
      <button type="button" class="btn  btn-primary btn-sm" (click)="updateStatus('IP')">In Progress</button>

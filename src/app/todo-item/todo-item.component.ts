@@ -29,4 +29,11 @@ export class TodoItemComponent implements OnInit {
   updateTitleSave(): void{
     this.isEditing=false;
   }
+
+  getBackgroundColor() {
+    if (this.todo.status===StatusCode.InProgress) {
+      return '#ffe082';
+    }
+    return '#eeeeee';
+  }
 }
