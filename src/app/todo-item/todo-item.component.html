@@ -1,6 +1,8 @@
  <div class="view">
-   <!-- <label>{{ todo.title }}</label> -->
-   <input type="text" class="form-control" [(ngModel)]="todo.title">
+   <label *ngIf="!isEditing">{{ todo.title }}</label>
+
+   <input *ngIf="isEditing" type="text" class="form-control" [(ngModel)]="todo.title" (keyup.enter)="updateTitleSave()">
+   <button type="button" class="btn  btn-primary btn-sm" (click)="updateTitle()">Edit</button>
 
    <div class="float-right">
      <confirmation-modal [todo]="todo"></confirmation-modal>

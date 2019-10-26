@@ -20,8 +20,8 @@ export class ListOfTodoItemsComponent implements OnInit {
 
   get filteredArray(): ITodo[] {
     return this.TodoService.todoList.filter(x =>
-        x.status===this.statusCode
+      x.status === this.statusCode
     );
-}
+  }
 
 }

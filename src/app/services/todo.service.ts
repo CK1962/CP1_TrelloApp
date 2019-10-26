@@ -23,7 +23,7 @@ export class TodoService {
   }
 
   updateStatus(todo: ITodo, statusCode: StatusCode): void {
-   var foundItem = this.todoList.find(x => x.id===todo.id);
-   foundItem.status=statusCode;
-}
+    var foundItem = this.todoList.find(x => x.id === todo.id);
+    foundItem.status = statusCode;
+  }
 }

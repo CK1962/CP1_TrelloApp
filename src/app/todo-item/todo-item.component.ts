@@ -13,11 +13,20 @@ export class TodoItemComponent implements OnInit {
   constructor(private TodoService: TodoService) { }
 
   @Input() todo: ITodo;
+  isEditing: Boolean= false;
 
   ngOnInit() {
   }
 
   updateStatus(statusCode: StatusCode): void {
     this.TodoService.updateStatus(this.todo, statusCode)
+  }
+
+  updateTitle(): void {
+    this.isEditing=true;
+  }
+
+  updateTitleSave(): void{
+    this.isEditing=false;
   }
 }
